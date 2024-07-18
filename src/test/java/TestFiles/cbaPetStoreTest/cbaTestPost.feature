@@ -47,9 +47,9 @@ Scenario: verify post api response and schema for  /v2/pet/{petID}
 
 
 Scenario: upload image
-Given url 'https://slack.com/api/files.upload'
-And multipart file file = { read: 'thumb.jpg', filename: 
-'upload-name.jpg', contentType: 'image/jpg' }
-And multipart field token = 'xxxx-xxxxxxxxx-xxxx'
-When method post
-Then status 200
+    Given path 'pet/17/uploadImage', 'binary'
+    And param name = 'test.jpg'
+    And request read('test.jpg')
+    When method post
+    Then status 200
+    And match response contains { code: '#number' }

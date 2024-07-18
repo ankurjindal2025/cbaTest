@@ -1,4 +1,4 @@
-package examples.cbaPetStoreTest;
+package TestFiles.cbaPetStoreTest;
 
 import com.intuit.karate.junit5.Karate;
 
